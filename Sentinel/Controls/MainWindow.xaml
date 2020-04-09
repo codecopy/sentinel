@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:sys="clr-namespace:System;assembly=mscorlib"
     xmlns:SentinelInterfaces="clr-namespace:Sentinel.Interfaces"
     xmlns:converters="clr-namespace:Sentinel.Support.Converters"
@@ -70,6 +71,62 @@
     -->
 
     <DockPanel>
+
+        <ToolBarTray DockPanel.Dock="Top">
+            <ToolBar Style="{DynamicResource MaterialDesignToolBar}" ClipToBounds="False">
+
+                <Button Command="{Binding NewSession}"
+                        ToolTip="New session">
+                    <materialDesign:PackIcon Kind="AddThick" />
+                </Button>
+                <Button Command="{Binding LoadSession}">
+                    <materialDesign:PackIcon Kind="FolderOpen" />
+                </Button>
+                <Button Command="{Binding ShowPreferences}">
+                    <materialDesign:PackIcon Kind="Cog"></materialDesign:PackIcon>
+                </Button>
+<!-- 
+                <RibbonApplicationMenuItem
+                        Header="New Session"
+                        ImageSource="/Resources/Large/Add.PNG"
+                        KeyTip="N"
+                        Command="{Binding NewSession}"/>
+
+                    <RibbonApplicationMenuItem
+                        Header="Load Session"
+                        ImageSource="/Resources/Large/Open.PNG"
+                        KeyTip="L"
+                        Command="{Binding LoadSession}"/>
+
+                    <RibbonApplicationMenuItem
+                        Header="Save Session"
+                        ImageSource="/Resources/Large/Save.PNG"
+                        KeyTip="S"
+                        Command="{Binding SaveSession}"/>                    
+                    
+                    <RibbonApplicationMenuItem
+                        Header="Export Logs"
+                        ImageSource="/Resources/Large/Export.PNG"
+                        Command="{Binding ExportLogs}"
+                        KeyTip="E" />
+                    
+                    <RibbonApplicationMenuItem
+                        Header="Preferences"
+                        Command="{Binding ShowPreferences}"
+                        CommandParameter="0"
+                        ImageSource="/Resources/Large/Settings.PNG"
+                        ToolTip="Show Preferences Dialog" />
+
+                    <RibbonApplicationMenuItem
+                        Header="About"
+                        ImageSource="/Resources/Large/Info.PNG"
+                        KeyTip="A"
+                        Command="{Binding About}"/>
+                -->
+
+
+            </ToolBar>
+        </ToolBarTray>
 
         <!--<Ribbon
             SelectedIndex="0"
@@ -473,6 +530,11 @@
             <TabControl x:Name="tabControl"
                         Grid.Row="1">
             </TabControl>
+            <materialDesign:Snackbar IsActive="{Binding UpgradeService.ShowPanel}"
+                                     DockPanel.Dock="Bottom"
+                                     HorizontalAlignment="Stretch">
+                <materialDesign:SnackbarMessage ActionContent="OK" Content="{Binding UpgradeService.Status}" />
+            </materialDesign:Snackbar>
         </DockPanel>
     </DockPanel>
 </Window>
