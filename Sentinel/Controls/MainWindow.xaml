@@ -1,4 +1,4 @@
-﻿<RibbonWindow
+﻿<Window
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -18,6 +18,7 @@
     Closing="OnClosed"
     ResizeMode="CanResizeWithGrip">
 
+    <!--
     <RibbonWindow.Resources>
         <Style
             TargetType="{x:Type Image}">
@@ -32,7 +33,6 @@
                 Value="NearestNeighbor" />
 
             <Style.Triggers>
-                <!-- If the parent is a button, then disable image (visually) when parent is not enabled -->
                 <DataTrigger
                     Binding="{Binding IsEnabled, RelativeSource={RelativeSource AncestorLevel=1, AncestorType={x:Type Button}}}"
                     Value="False">
@@ -67,10 +67,11 @@
         <converters:LongPathToShortPathConverter
             x:Key="longPathToShortPath" />
     </RibbonWindow.Resources>
+    -->
 
     <DockPanel>
 
-        <Ribbon
+        <!--<Ribbon
             SelectedIndex="0"
             DockPanel.Dock="Top"
             ShowQuickAccessToolBarOnTop="False" Margin="0,0,-0.4,0">
@@ -194,8 +195,8 @@
                                           Label="Preferences" />
                 </RibbonGroup>
 
-                <!-- Standard highlighters -->
-                <RibbonGroup Name="StandardHighlightersRibbonGroup" Header="Highlighters"> <!--ItemsSource="{Binding Source={StaticResource standardHighlighters}}"-->                               
+                --><!-- Standard highlighters --><!--
+                <RibbonGroup Name="StandardHighlightersRibbonGroup" Header="Highlighters"> --><!--ItemsSource="{Binding Source={StaticResource standardHighlighters}}"--><!--                               
                     <RibbonGroup.ItemTemplate>
                         <DataTemplate>
                             <RibbonToggleButton Label="{Binding Name}"
@@ -214,7 +215,7 @@
                         </DataTemplate>
                     </RibbonGroup.ItemTemplate>
                 </RibbonGroup>
-                <RibbonGroup Name="StandardFiltersRibbonGroup" Header="Filters"><!--ItemsSource="{Binding Source={StaticResource standardFilters}}"-->
+                <RibbonGroup Name="StandardFiltersRibbonGroup" Header="Filters">--><!--ItemsSource="{Binding Source={StaticResource standardFilters}}"--><!--
                                
                     <RibbonGroup.ItemTemplate>
                         <DataTemplate>
@@ -342,8 +343,8 @@
                 </RibbonGroup>
                 <RibbonGroup
                     Name="StandardHighlighterRibbonGroupOnTab" Header="Standard Highlighters">
-                    <!--ItemsSource="{Binding Source={StaticResource standardHighlighters}}"
-                    Visibility="{Binding Source={StaticResource standardHighlighters}, Path=Count, Converter={StaticResource collapseIfZero}}">-->                    
+                    --><!--ItemsSource="{Binding Source={StaticResource standardHighlighters}}"
+                    Visibility="{Binding Source={StaticResource standardHighlighters}, Path=Count, Converter={StaticResource collapseIfZero}}">--><!--                    
                     <RibbonGroup.ItemTemplate>
                         <DataTemplate>
                             <RibbonToggleButton
@@ -364,8 +365,8 @@
                     </RibbonGroup.ItemTemplate>
                 </RibbonGroup>
                 <RibbonGroup Name="CustomHighlighterRibbonGroupOnTab" Header="Custom Highlighters">
-                    <!--ItemsSource="{Binding Source={StaticResource customHighlighters}}"
-                    Visibility="{Binding Source={StaticResource customHighlighters}, Path=Count, Converter={StaticResource collapseIfZero}}">-->                    
+                    --><!--ItemsSource="{Binding Source={StaticResource customHighlighters}}"
+                    Visibility="{Binding Source={StaticResource customHighlighters}, Path=Count, Converter={StaticResource collapseIfZero}}">--><!--                    
                     <RibbonGroup.ItemTemplate>
                         <DataTemplate>
                             <RibbonToggleButton
@@ -394,8 +395,8 @@
                                     LargeImageSource="/Resources/Large/Add.png" />
                 </RibbonGroup>
                 <RibbonGroup Name="StandardFiltersRibbonGroupOnTab" Header="Standard Filters">
-                    <!--ItemsSource="{Binding Source={StaticResource standardFilters}}"
-                    Visibility="{Binding Source={StaticResource standardFilters}, Path=Count, Converter={StaticResource collapseIfZero}}"-->
+                    --><!--ItemsSource="{Binding Source={StaticResource standardFilters}}"
+                    Visibility="{Binding Source={StaticResource standardFilters}, Path=Count, Converter={StaticResource collapseIfZero}}"--><!--
                     <RibbonGroup.ItemTemplate>
                         <DataTemplate>
                             <RibbonToggleButton Label="{Binding Name}"
@@ -416,8 +417,8 @@
                 </RibbonGroup>
                 <RibbonGroup
                     Name="CustomFiltersRibbonGroupOnTab" Header="Custom Filters">
-                    <!--ItemsSource="{Binding Source={StaticResource customFilters}}"
-                        Visibility="{Binding Source={StaticResource customFilters}, Path=Count, Converter={StaticResource collapseIfZero}}"-->                               
+                    --><!--ItemsSource="{Binding Source={StaticResource customFilters}}"
+                        Visibility="{Binding Source={StaticResource customFilters}, Path=Count, Converter={StaticResource collapseIfZero}}"--><!--                               
                     <RibbonGroup.ItemTemplate>
                         <DataTemplate>
                             <RibbonToggleButton Label="{Binding Name}"
@@ -445,7 +446,7 @@
                                     CommandParameter="4" />
                 </RibbonGroup>
                 <RibbonGroup Name="CustomExtractorsRibbonGroupOnTab" Header="Custom Extractors">
-                    <!--ItemsSource="{Binding Source={StaticResource customExtractors}}"-->
+                    --><!--ItemsSource="{Binding Source={StaticResource customExtractors}}"--><!--
                     <RibbonGroup.ItemTemplate>
                         <DataTemplate>
                             <RibbonToggleButton Label="{Binding Name}"
@@ -465,7 +466,7 @@
                     </RibbonGroup.ItemTemplate>
                 </RibbonGroup>
             </RibbonTab>            
-        </Ribbon>
+        </Ribbon>-->
 
         <DockPanel>
             <upgrader:UpgradeNotification DockPanel.Dock="Top" DataContext="{Binding UpgradeService}" />
@@ -474,4 +475,4 @@
             </TabControl>
         </DockPanel>
     </DockPanel>
-</RibbonWindow>
+</Window>

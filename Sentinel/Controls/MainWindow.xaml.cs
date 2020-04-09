@@ -699,12 +699,12 @@
 
         private void BindSearchToSearchExtractor()
         {
-            SearchRibbonTextBox.SetBinding(TextBox.TextProperty, CreateBinding("Pattern", SearchExtractor));
-            SearchModeListBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Mode", SearchExtractor));
-            SearchTargetComboBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Field", SearchExtractor));
+            //SearchRibbonTextBox.SetBinding(TextBox.TextProperty, CreateBinding("Pattern", SearchExtractor));
+            //SearchModeListBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Mode", SearchExtractor));
+            //SearchTargetComboBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Field", SearchExtractor));
 
-            HighlightToggleButton.IsChecked = false;
-            FilterToggleButton.IsChecked = false;
+            //HighlightToggleButton.IsChecked = false;
+            //FilterToggleButton.IsChecked = false;
         }
 
         private Binding CreateBinding(string path, object source)
@@ -719,20 +719,20 @@
 
         private void BindSearchToSearchFilter()
         {
-            SearchRibbonTextBox.SetBinding(TextBox.TextProperty, CreateBinding("Pattern", SearchFilter));
-            SearchModeListBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Mode", SearchFilter));
-            SearchTargetComboBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Field", SearchFilter));
-            HighlightToggleButton.IsChecked = false;
-            ExtractToggleButton.IsChecked = false;
+            //SearchRibbonTextBox.SetBinding(TextBox.TextProperty, CreateBinding("Pattern", SearchFilter));
+            //SearchModeListBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Mode", SearchFilter));
+            //SearchTargetComboBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Field", SearchFilter));
+            //HighlightToggleButton.IsChecked = false;
+            //ExtractToggleButton.IsChecked = false;
         }
 
         private void BindSearchToSearchHighlighter()
         {
-            SearchRibbonTextBox.SetBinding(TextBox.TextProperty, CreateBinding("Search", Search));
-            SearchModeListBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Mode", Search));
-            SearchTargetComboBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Field", Search));
-            FilterToggleButton.IsChecked = false;
-            ExtractToggleButton.IsChecked = false;
+            //SearchRibbonTextBox.SetBinding(TextBox.TextProperty, CreateBinding("Search", Search));
+            //SearchModeListBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Mode", Search));
+            //SearchTargetComboBox.SetBinding(Selector.SelectedItemProperty, CreateBinding("Field", Search));
+            //FilterToggleButton.IsChecked = false;
+            //ExtractToggleButton.IsChecked = false;
         }
 
         private void RemoveBindingReferences()
@@ -787,24 +787,24 @@
             var customHighlighters = new CollectionViewSource { Source = Highlighters.Highlighters };
             customHighlighters.View.Filter = c => !(c is IStandardDebuggingHighlighter);
 
-            StandardHighlightersRibbonGroup.SetBinding(
-                ItemsControl.ItemsSourceProperty,
-                new Binding { Source = standardHighlighters });
+            //StandardHighlightersRibbonGroup.SetBinding(
+            //    ItemsControl.ItemsSourceProperty,
+            //    new Binding { Source = standardHighlighters });
 
-            StandardHighlighterRibbonGroupOnTab.SetBinding(
-                ItemsControl.ItemsSourceProperty,
-                new Binding { Source = standardHighlighters });
+            //StandardHighlighterRibbonGroupOnTab.SetBinding(
+            //    ItemsControl.ItemsSourceProperty,
+            //    new Binding { Source = standardHighlighters });
             var collapsingStandardHighlightersBinding = new Binding
             {
                 Source = standardHighlighters,
                 Path = new PropertyPath("Count"),
                 Converter = collapseIfZero,
             };
-            StandardHighlighterRibbonGroupOnTab.SetBinding(VisibilityProperty, collapsingStandardHighlightersBinding);
+            //StandardHighlighterRibbonGroupOnTab.SetBinding(VisibilityProperty, collapsingStandardHighlightersBinding);
 
-            CustomHighlighterRibbonGroupOnTab.SetBinding(
-                ItemsControl.ItemsSourceProperty,
-                new Binding { Source = customHighlighters });
+            //CustomHighlighterRibbonGroupOnTab.SetBinding(
+            //    ItemsControl.ItemsSourceProperty,
+            //    new Binding { Source = customHighlighters });
 
             var collapsingCustomHighlightersBinding = new Binding
             {
@@ -812,7 +812,7 @@
                 Path = new PropertyPath("Count"),
                 Converter = collapseIfZero,
             };
-            CustomHighlighterRibbonGroupOnTab.SetBinding(VisibilityProperty, collapsingCustomHighlightersBinding);
+            //CustomHighlighterRibbonGroupOnTab.SetBinding(VisibilityProperty, collapsingCustomHighlightersBinding);
 
             var standardFilters = new CollectionViewSource { Source = Filters.Filters };
             standardFilters.View.Filter = c => c is IStandardDebuggingFilter;
@@ -820,60 +820,60 @@
             var customFilters = new CollectionViewSource { Source = Filters.Filters };
             customFilters.View.Filter = c => !(c is IStandardDebuggingFilter);
 
-            StandardFiltersRibbonGroup.SetBinding(
-                ItemsControl.ItemsSourceProperty,
-                new Binding { Source = standardFilters });
+            //StandardFiltersRibbonGroup.SetBinding(
+            //    ItemsControl.ItemsSourceProperty,
+            //    new Binding { Source = standardFilters });
 
-            StandardFiltersRibbonGroupOnTab.SetBinding(
-                ItemsControl.ItemsSourceProperty,
-                new Binding { Source = standardFilters });
+            //StandardFiltersRibbonGroupOnTab.SetBinding(
+            //    ItemsControl.ItemsSourceProperty,
+            //    new Binding { Source = standardFilters });
 
-            StandardFiltersRibbonGroupOnTab.SetBinding(
-                VisibilityProperty,
-                new Binding { Source = standardFilters, Path = new PropertyPath("Count"), Converter = collapseIfZero });
-            CustomFiltersRibbonGroupOnTab.SetBinding(
-                ItemsControl.ItemsSourceProperty,
-                new Binding { Source = customFilters });
-            CustomFiltersRibbonGroupOnTab.SetBinding(
-                VisibilityProperty,
-                new Binding { Source = customFilters, Path = new PropertyPath("Count"), Converter = collapseIfZero });
+            //StandardFiltersRibbonGroupOnTab.SetBinding(
+            //    VisibilityProperty,
+            //    new Binding { Source = standardFilters, Path = new PropertyPath("Count"), Converter = collapseIfZero });
+            //CustomFiltersRibbonGroupOnTab.SetBinding(
+            //    ItemsControl.ItemsSourceProperty,
+            //    new Binding { Source = customFilters });
+            //CustomFiltersRibbonGroupOnTab.SetBinding(
+            //    VisibilityProperty,
+            //    new Binding { Source = customFilters, Path = new PropertyPath("Count"), Converter = collapseIfZero });
 
-            var customExtractors = Extractors.Extractors;
-            CustomExtractorsRibbonGroupOnTab.SetBinding(
-                ItemsControl.ItemsSourceProperty,
-                new Binding { Source = customExtractors });
+            //var customExtractors = Extractors.Extractors;
+            //CustomExtractorsRibbonGroupOnTab.SetBinding(
+            //    ItemsControl.ItemsSourceProperty,
+            //    new Binding { Source = customExtractors });
 
-            var customClassifyiers = ClassifyingService.Classifiers;
-            CustomClassifiersRibbonGroupOnTab.SetBinding(
-                ItemsControl.ItemsSourceProperty,
-                new Binding { Source = customClassifyiers });
+            //var customClassifyiers = ClassifyingService.Classifiers;
+            //CustomClassifiersRibbonGroupOnTab.SetBinding(
+            //    ItemsControl.ItemsSourceProperty,
+            //    new Binding { Source = customClassifyiers });
 
             BindToSearchElements();
 
             // Column view buttons
-            ExceptionRibbonToggleButton.SetBinding(
-                ToggleButton.IsCheckedProperty,
-                new Binding { Source = Preferences, Path = new PropertyPath("ShowExceptionColumn") });
-            ThreadRibbonToggleButton.SetBinding(
-                ToggleButton.IsCheckedProperty,
-                new Binding { Source = Preferences, Path = new PropertyPath("ShowThreadColumn") });
-            SourceHostRibbonToggleButton.SetBinding(
-                ToggleButton.IsCheckedProperty,
-                new Binding { Source = Preferences, Path = new PropertyPath("ShowSourceColumn") });
-            DebugSourceRibbonToggleButton.SetBinding(
-                ToggleButton.IsCheckedProperty,
-                new Binding { Source = Preferences, Path = new PropertyPath("ShowSourceInformationColumns") });
-            ContextRibbonToggleButton.SetBinding(
-                ToggleButton.IsCheckedProperty,
-                new Binding { Source = Preferences, Path = new PropertyPath("ShowContextColumn") });
+            //ExceptionRibbonToggleButton.SetBinding(
+            //    ToggleButton.IsCheckedProperty,
+            //    new Binding { Source = Preferences, Path = new PropertyPath("ShowExceptionColumn") });
+            //ThreadRibbonToggleButton.SetBinding(
+            //    ToggleButton.IsCheckedProperty,
+            //    new Binding { Source = Preferences, Path = new PropertyPath("ShowThreadColumn") });
+            //SourceHostRibbonToggleButton.SetBinding(
+            //    ToggleButton.IsCheckedProperty,
+            //    new Binding { Source = Preferences, Path = new PropertyPath("ShowSourceColumn") });
+            //DebugSourceRibbonToggleButton.SetBinding(
+            //    ToggleButton.IsCheckedProperty,
+            //    new Binding { Source = Preferences, Path = new PropertyPath("ShowSourceInformationColumns") });
+            //ContextRibbonToggleButton.SetBinding(
+            //    ToggleButton.IsCheckedProperty,
+            //    new Binding { Source = Preferences, Path = new PropertyPath("ShowContextColumn") });
         }
 
         private void BindToSearchElements()
         {
             // Bind search
-            HighlightToggleButton.SetBinding(ToggleButton.IsCheckedProperty, CreateBinding("Enabled", Search));
-            FilterToggleButton.SetBinding(ToggleButton.IsCheckedProperty, CreateBinding("Enabled", SearchFilter));
-            ExtractToggleButton.SetBinding(ToggleButton.IsCheckedProperty, CreateBinding("Enabled", SearchExtractor));
+            //HighlightToggleButton.SetBinding(ToggleButton.IsCheckedProperty, CreateBinding("Enabled", Search));
+            //FilterToggleButton.SetBinding(ToggleButton.IsCheckedProperty, CreateBinding("Enabled", SearchFilter));
+            //ExtractToggleButton.SetBinding(ToggleButton.IsCheckedProperty, CreateBinding("Enabled", SearchExtractor));
 
             if (Search.Enabled)
             {
