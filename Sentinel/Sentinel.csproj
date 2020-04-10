@@ -213,6 +213,9 @@
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\PersistingSettings.cs" />
+    <Compile Include="Controls\PreferencesDialog.xaml.cs">
+      <DependentUpon>PreferencesDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RecentFileInfo.cs" />
     <Compile Include="Controls\WindowPlacementInfo.cs" />
     <Compile Include="Controls\IntegerTextBox.cs" />
@@ -365,6 +368,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\PreferencesDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
