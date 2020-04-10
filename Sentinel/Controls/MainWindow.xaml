@@ -604,7 +604,7 @@
             </RibbonTab>            
         </Ribbon>-->
 
-        <materialDesign:DialogHost>
+        <materialDesign:DialogHost x:Name="DialogHost">
             <materialDesign:DialogHost.DialogContent>
                 <controls:PreferencesDialog />
             </materialDesign:DialogHost.DialogContent>
@@ -617,7 +617,7 @@
                                                     ActionCommand="{Binding ShowPreferences}" />
                 </materialDesign:Snackbar>
                 <DockPanel>
-                    <Button Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                    <Button Command="{Binding OpenPreferences}"
                             DockPanel.Dock="Bottom" />
                     <TabControl x:Name="tabControl"
                                 Grid.Row="1" />
